@@ -65,7 +65,9 @@ export class CatalogComponent {
 
   aplicarFiltros() {
     this.productosFiltrados = this.productos.filter((producto: Producto) => {
-      const coincideMarca = producto.marca === this.marcaSeleccionada;
+      const coincideMarca = this.marcaSeleccionada
+        ? producto.marca === this.marcaSeleccionada
+        : true;
 
       const coincideTexto =
         !this.filtroTexto ||

@@ -10,6 +10,7 @@
       class="w-64"
       [(ngModel)]="filtroTexto"
       (input)="aplicarFiltros()"
+      (close)="filtroTexto = ''; aplicarFiltros()"
     />
 
     <p-dropdown

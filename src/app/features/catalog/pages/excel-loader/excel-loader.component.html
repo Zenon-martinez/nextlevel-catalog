@@ -40,5 +40,17 @@
         ></button>
       </div>
     </div>
+
+    @if(tieneDatosEnCatalogo) {
+    <div class="mt-8 pt-4 border-t border-gray-200 flex justify-end">
+      <button
+        pButton
+        label="Ver catálogo"
+        icon="pi pi-arrow-right"
+        class="p-button-primary"
+        (click)="irAlCatalogo()"
+      ></button>
+    </div>
+    }
   </p-card>
 </div>

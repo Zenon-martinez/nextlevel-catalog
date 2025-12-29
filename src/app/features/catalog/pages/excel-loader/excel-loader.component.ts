@@ -23,12 +23,21 @@ import { CatalogoStorageService } from '../../services/catalogo-storage.service'
 })
 export class ExcelLoaderComponent {
   excelUrl = '';
+  tieneDatosEnCatalogo = false;
 
   constructor(
     private excelService: ExcelCatalogService,
     private storage: CatalogoStorageService,
     private router: Router
   ) {}
+
+  ngOnInit() {
+    this.tieneDatosEnCatalogo = this.existenDatosEnLocalStorage();
+  }
+
+  private existenDatosEnLocalStorage(): boolean {
+    return !!localStorage.getItem('catalogo_productos');
+  }
 
   async onFileSelect(event: any) {
     const file: File = event.files?.[0];
@@ -48,5 +57,9 @@ export class ExcelLoaderComponent {
 
     // Placeholder: aquí después conectamos la descarga
     console.log('URL ingresada:', this.excelUrl);
+  }
+
+  irAlCatalogo() {
+    this.router.navigate(['/catalogo']);
   }
 }

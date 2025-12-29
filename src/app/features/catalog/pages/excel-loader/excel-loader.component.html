@@ -1,0 +1,44 @@
+<div class="min-h-screen flex justify-center bg-gray-50 p-6">
+  <p-card class="w-full max-w-xl shadow-lg h-fit">
+    <ng-template pTemplate="title"> Catálogo de Productos </ng-template>
+
+    <ng-template pTemplate="subtitle">
+      Carga un archivo Excel o proporciona una URL
+    </ng-template>
+
+    <div class="flex flex-col gap-6 mt-4">
+      <!-- Carga de archivo -->
+      <div>
+        <p class="text-sm font-medium mb-2">Cargar archivo Excel</p>
+        <p-fileUpload
+          mode="basic"
+          name="excel"
+          accept=".xlsx,.xls"
+          chooseLabel="Seleccionar archivo"
+          (onSelect)="onFileSelect($event)"
+        >
+        </p-fileUpload>
+      </div>
+
+      <!-- Separador -->
+      <div class="text-center text-sm text-gray-400">o</div>
+
+      <!-- Carga por URL -->
+      <div class="flex gap-2">
+        <input
+          pInputText
+          type="text"
+          class="flex-1"
+          placeholder="https://ejemplo.com/catalogo.xlsx"
+          [(ngModel)]="excelUrl"
+        />
+        <button
+          pButton
+          label="Cargar"
+          (click)="onLoadFromUrl()"
+          [disabled]="!excelUrl"
+        ></button>
+      </div>
+    </div>
+  </p-card>
+</div>

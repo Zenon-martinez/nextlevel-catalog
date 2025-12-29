@@ -1,0 +1,11 @@
+<div
+  class="flex flex-col items-center justify-center rounded-md border border-gray-200 bg-gray-100 text-gray-400"
+  [ngClass]="{
+    'w-12 h-12 text-xs': size === 'sm',
+    'w-16 h-16 text-sm': size === 'md',
+    'w-24 h-24 text-sm': size === 'lg'
+  }"
+>
+  <i class="pi pi-image mb-1 text-lg"></i>
+  <span class="leading-none">Sin imagen</span>
+</div>
